@@ -1,3 +1,4 @@
+"use strict";
 const ingredients = [
   "Potatoes",
   "Mushrooms",
@@ -6,14 +7,13 @@ const ingredients = [
   "Herbs",
   "Condiments",
 ];
-
 const listRef = document.querySelector("#ingredients");
-ingredients.forEach((item) => {
-  const liEl = document.createElement("li");
-  liEl.classList.add("item");
-  liEl.textContent = item;
-  listRef.append(liEl);
-  // console.log(liEl);
-  return liEl;
-});
+const listsItem = (ingredients) => {
+  const itemEl = document.createElement("li");
+  itemEl.textContent = ingredients;
+  itemEl.classList.add("item");
+  return itemEl;
+};
+const elements = ingredients.map(listsItem);
 console.log(listRef);
+listRef.append(...elements);
